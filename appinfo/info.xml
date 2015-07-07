@@ -1,0 +1,21 @@
+<?xml version="1.0"?> 
+<info>
+	<id>pinit</id>
+	<name>Pinit</name>
+	<licence>AGPL</licence>
+	<author>Döll Sebastian</author>
+	<shipped>false</shipped>
+	<description>Pinit, with this app you can create easy social bookmarks, visual bookmarks and map bookmarks, Share your Pins with other users or for public!</description>
+	<namespace>Pinit</namespace>
+	<website>https://github.com/libasys/ownCloud-8.1-Pinit-App</website>
+	<version>1.0.1</version>
+	<category>multimedia</category>
+	<default_enable/>
+	<public>
+		<pinwall>public.php</pinwall>
+	</public>
+	<dependencies>
+		<php min-version="5.4" max-version="5.6"/>
+		<owncloud min-version="8.1" max-version="8.1.99"/>
+	</dependencies>	
+</info>

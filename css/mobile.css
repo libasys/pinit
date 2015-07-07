@@ -1,0 +1,82 @@
+/**
+ * ownCloud - Pinit
+ *
+ * @author Sebastian Doell
+ * @copyright 2014 sebastian doell sebastian@libasys.de
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+@media only screen and (max-width: 768px) {
+
+#body-user.appbody-pinit #controls{
+	background-color:transparent;
+	margin-left:50px;
+}
+/* do not show Deleted Files on mobile, not optimized yet and button too long */
+
+#body-user.appbody-pinit #app-navigation-toggle{
+	background-color:#fff;
+	
+	height:36px;
+	margin-top:4px;
+}
+#body-user.appbody-pinit #app-navigation{
+	background-color:#fff;
+	
+	height:100%;
+	width:250px;
+	
+}
+#first-group{
+	position:fixed;
+	left:0;
+	top:45px;
+}
+#controls button.filterPins{
+	display:block;
+}
+
+/* proper notification area for multi line messages */
+#notification-container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+#pinContainerShow{
+	width:100%;
+	left:0;
+	margin-left:0;
+}
+#show-pin #innerRightShow{
+	display:none;
+	
+}
+#show-pin {
+	width:98%;
+	left:5%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#show-pin #innerLeftShow{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+}
+}

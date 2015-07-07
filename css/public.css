@@ -1,0 +1,76 @@
+/**
+ * ownCloud - Pinit
+ *
+ * @author Sebastian Doell
+ * @copyright 2014 sebastian doell sebastian@libasys.de
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+body{
+	background:#ccc;
+}
+#body-public #header{
+	z-index:60;
+}
+#content-wrapper{
+	background:transparent;
+	top:60px;
+	padding:0;
+	margin:0;
+}
+.info{
+	position:fixed;
+	bottom:0;
+	text-align:center;
+	line-height:20px;
+	display:block;
+	width:100%;
+}
+body{
+	position:absolute;
+	height:90%;
+	width:100%;
+}
+
+#showPin-cancel{
+	top:0px;
+}
+#pinContainerShow{
+	position:absolute;
+	padding:0;
+	margin:0;
+	display:block;
+	top:10px;
+	width:90%;
+	left:48%;
+	margin-left:-38%;
+	text-align:center;
+	background:transparent;
+	height:auto;
+	 z-index:80;
+	line-height:24px;
+	
+}
+
+#pinlist{
+	top:0;
+	
+	
+}
+
+#header{
+	height:50px;
+}

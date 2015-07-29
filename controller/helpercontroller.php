@@ -423,7 +423,7 @@ public function get_web_page( $url ){
 	preg_match( '@([\w/+]+)(;\s+charset=(\S+))?@i', $headerInfo, $matches );
 	if ( isset( $matches[2] ) )  {
 		$mime = $matches[2];
-		\OCP\Util::writeLog('pinit','MIME:'.$mime,\OCP\Util::DEBUG);
+		//\OCP\Util::writeLog('pinit','MIME:'.$mime,\OCP\Util::DEBUG);
 	}
 
     $header['errno']   = $err;

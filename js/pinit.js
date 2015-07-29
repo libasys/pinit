@@ -2093,7 +2093,7 @@ Pinit.prototype.SubmitForm = function(VALUE, FormId, UPDATEAREA,PINID) {
 				}
 				if (VALUE == 'edit-pin') {
 					this.showMeldung(t('pinit', 'Pin update success!'));
-						var newCountIndex=(this.aPinsHtml.length);
+					var newCountIndex=(this.aPinsHtml.length);
 					this.aPinsHtml[(newCountIndex-1)] = newpin;
 					
 					if(newpin.lon != '' && newpin.lat !=''){
@@ -2107,7 +2107,9 @@ Pinit.prototype.SubmitForm = function(VALUE, FormId, UPDATEAREA,PINID) {
 					this.adjustGrid('.pinrow');
 					$('div[data-id="' + newpin.id + '"] .avatarrow').avatar(newpin.user_id, 64);
 						this.updateCounterTags();
-					
+					$("#pinContainer").html('');
+					$('#pinContainer').dialog('close');
+					$("#pinContainer").removeClass('isOpenDialog');
 				}
 
 			}.bind(this)

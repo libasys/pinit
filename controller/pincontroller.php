@@ -816,10 +816,10 @@ class PinController extends Controller {
 			$doc = new \DOMDocument();
 			@$doc -> loadHTML(mb_convert_encoding($html['content'], 'HTML-ENTITIES', 'UTF-8'));
 			
-			$nodes = $doc -> getElementsByTagName('title');
+			$title = $doc -> getElementsByTagName('title');
 			
 		
-			$metaInfo['title'] = filter_var($nodes -> item(0) -> nodeValue,FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
+			$metaInfo['title'] = filter_var($title -> item(0) -> nodeValue,FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
 			$metas = $doc -> getElementsByTagName('meta');
 		
 			for ($i = 0; $i < $metas -> length; $i++) {
@@ -881,31 +881,32 @@ class PinController extends Controller {
 			
 	    }//no Error
 	    
-	$imgString='';
-	$imgMimeType='';
-	$tmpkey='';
-	if (array_key_exists('imagesrc', $metaInfo)) {
-
-		//$data = @file_get_contents($metaInfo['imagesrc']);
-		$imgdata=$this->helperController -> get_image_from_url(urldecode($metaInfo['imagesrc']));
-		if(array_key_exists(trim($imgdata['mimetype']), $allowed) && $imgdata['errno'] == 0){
-			$tmpkey = 'webthumbnail-photo-new-'.time();
-			$image = new \OCP\Image();
-			sleep(1);
-			// Apparently it needs time to load the data.
-			if ($image -> loadFromData($imgdata['content'])) {
-				if($image->width() > 400 || $image->height() > 400) {
-					$image->resize(400); // Prettier resizing than with browser and saves bandwidth.
-				}	
-				if (\OC::$server->getCache()->set($tmpkey, $image -> data(), 600)) {
-					$imgString = $image -> __toString();
-					$imgMimeType = $image -> mimeType();
-					
+			$imgString='';
+			$imgMimeType='';
+			$tmpkey='';
+			if (array_key_exists('imagesrc', $metaInfo)) {
+		
+				//$data = @file_get_contents($metaInfo['imagesrc']);
+				$imgdata=$this->helperController -> get_image_from_url(urldecode($metaInfo['imagesrc']));
+				if(array_key_exists(trim($imgdata['mimetype']), $allowed) && $imgdata['errno'] == 0){
+					$tmpkey = 'webthumbnail-photo-new-'.time();
+					$image = new \OCP\Image();
+					sleep(1);
+					// Apparently it needs time to load the data.
+					if ($image -> loadFromData($imgdata['content'])) {
+						if($image->width() > 400 || $image->height() > 400) {
+							$image->resize(400); // Prettier resizing than with browser and saves bandwidth.
+						}	
+						if (\OC::$server->getCache()->set($tmpkey, $image -> data(), 600)) {
+							$imgString = $image -> __toString();
+							$imgMimeType = $image -> mimeType();
+							
+						}
+						
+					}
 				}
-				
 			}
-		}
-
+			
 			$resultData=array(
 				'imgdata' => $imgString, 
 				'mimetype' => $imgMimeType, 
@@ -918,7 +919,7 @@ class PinController extends Controller {
 			  $response -> setData($resultData);
 			return $response;
 	
-	}
+	
 	    
 	}
 
